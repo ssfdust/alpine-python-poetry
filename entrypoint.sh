@@ -123,11 +123,13 @@ if [[ ! -f /requirements.installed ]]; then
 
   if [[ -f $TARGET_REQFILE && "$(cat $TARGET_REQFILE | wc -l)" -gt 0 ]]; then
 		vlog "Upgrading..."
-		pip install $PIP_FLAGS --upgrade pip poetry
+		pip install $PIP_FLAGS --upgrade pip poetry pip-autoremove
         pip install $PIP_FLAGS --no-build-isolation pendulum
-		vlog "Installing all Pip requirements..."
+		vlog "Installing all requirements..."
         poetry config virtualenvs.create false
         poetry install --no-dev --no-interaction --no-ansi
+        pip-autoremove poetry -y
+        pip uninstall pip-autoremove
         rm -rf ~/.cache
   fi
 
