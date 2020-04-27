@@ -130,7 +130,7 @@ if [[ ! -f /requirements.installed ]]; then
         poetry install --no-dev --no-interaction --no-ansi
 		pip install $PIP_FLAGS --upgrade pip poetry pip-autoremove
         pip-autoremove poetry -y
-        pip uninstall pip-autoremove
+        pip uninstall -y pip-autoremove
         rm -rf ~/.cache
   fi
 
