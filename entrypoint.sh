@@ -128,6 +128,7 @@ if [[ ! -f /requirements.installed ]]; then
 		vlog "Installing all requirements..."
         poetry config virtualenvs.create false
         poetry install --no-dev --no-interaction --no-ansi
+		pip install $PIP_FLAGS --upgrade pip poetry pip-autoremove
         pip-autoremove poetry -y
         pip uninstall pip-autoremove
         rm -rf ~/.cache
