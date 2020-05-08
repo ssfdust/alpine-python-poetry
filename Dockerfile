@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM jwilder/dockerize:latest
 
 # VERSIONS
 ENV ALPINE_VERSION=3.11 \
