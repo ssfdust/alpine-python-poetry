@@ -127,7 +127,7 @@ if [[ ! -f /requirements.installed ]]; then
         pip install $PIP_FLAGS --no-build-isolation pendulum
 		vlog "Installing all requirements..."
         poetry config virtualenvs.create false
-        poetry install --no-dev --no-interaction --no-ansi
+        poetry install --no-dev --no-interaction --no-ansi --no-root
 		pip install $PIP_FLAGS --upgrade pip poetry pip-autoremove
         pip-autoremove poetry -y
         pip uninstall -y pip-autoremove
